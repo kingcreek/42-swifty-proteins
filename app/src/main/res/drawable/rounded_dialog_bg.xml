@@ -1,0 +1,4 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="20dp" /> <!-- Radio de los bordes redondeados -->
+    <solid android:color="@android:color/white" /> <!-- Color del fondo del diálogo -->
+</shape>

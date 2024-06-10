@@ -1,0 +1,63 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'es.kingcreek.swifty_proteins'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "es.kingcreek.swifty_proteins"
+        minSdk 29
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // Recyclerview
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:33.0.0')
+    // Firebase Authentication
+    implementation 'com.google.firebase:firebase-auth:23.0.0'
+    // Biometric Authentication
+    implementation 'androidx.biometric:biometric:1.2.0-alpha05'
+    // Encrypted preferences
+    implementation 'androidx.security:security-crypto:1.1.0-alpha06'
+    // Gson
+    implementation 'com.google.code.gson:gson:2.8.9'
+    // AR
+    implementation 'com.google.ar:core:1.27.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.17.1'
+    implementation 'com.google.ar.sceneform:core:1.17.1'
+
+    // Life Cycle
+    def lifecycle_version = "2.1.0"
+    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-process:$lifecycle_version"
+}
