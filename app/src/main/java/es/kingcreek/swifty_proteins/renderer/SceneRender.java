@@ -110,7 +110,7 @@ public class SceneRender {
                         float distance = (float) Math.sqrt(Math.pow(eventX - lastDownX, 2) + Math.pow(eventY - lastDownY, 2));
 
                         if (timeDelta < 200 && distance < 20) {
-                            if (node.getName() != null && !node.getName().isEmpty()) {
+                            if (node.getName() != null && !node.getName().isEmpty() && !node.getName().equals("cylinder") && !node.getName().equals("cylinderH")) {
                                 atomCallback.onAtomClicked(node.getName());
                             }
                         }
@@ -166,7 +166,7 @@ public class SceneRender {
     public void toggleHydrogen(boolean active) {
         if (rootNode != null) {
             for (Node node : rootNode.getChildren()) {
-                if (node.getName() != null && node.getName().equals(HYDROGEN)) {
+                if (node.getName() != null && (node.getName().equals("H") || node.getName().equals("cylinderH"))) {
                     node.setEnabled(active);
                 }
             }

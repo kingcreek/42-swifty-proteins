@@ -173,6 +173,8 @@ public class ProteinView extends AppCompatActivity implements AtomCallback {
     public void onAtomClicked(String atomSymbol) {
         // This is a callback for clicked atom in scene to show information about it
         Element element = PeriodicTableUtils.getElementBySymbol(this, atomSymbol);
+        if(element == null)
+            return;
         CustomPopup customPopup = new CustomPopup(ProteinView.this, element);
         customPopup.setCanceledOnTouchOutside(true);
         customPopup.getWindow().setBackgroundDrawableResource(R.drawable.rounded_dialog_bg);
@@ -210,7 +212,7 @@ public class ProteinView extends AppCompatActivity implements AtomCallback {
                     for(Atom connection : atom.connections) {
                         Vector3 pointStart = new Vector3(atom.x, atom.y, atom.z);
                         Vector3 pointEnd = new Vector3(connection.x, connection.y, connection.z);
-                        String name = (atom.element.equals("H") || connection.element.equals("H")) ? "H" : "default";
+                        String name = (atom.element.equals("H") || connection.element.equals("H")) ? "cylinderH" : "cylinder";
                         sceneRenderer.setCylinder(getApplicationContext(), pointStart, pointEnd, CPKColor.getColor(getApplicationContext(), atom.element), name);
                     }
                 }

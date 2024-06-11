@@ -30,7 +30,7 @@ public class CustomPopup extends Dialog {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.atom_information);
 
-        // Inicializar vistas
+        // Init views
         TextView nameTextView = findViewById(R.id.text_name);
         TextView atomicMassTextView = findViewById(R.id.text_atomic_mass);
         TextView boilTextView = findViewById(R.id.text_boil);
@@ -46,7 +46,7 @@ public class CustomPopup extends Dialog {
         TextView summaryTextView = findViewById(R.id.text_summary);
         TextView symbolTextView = findViewById(R.id.text_symbol);
 
-        // Asignar valores a los TextViews concatenando el texto actual con el valor de cada campo
+        // Assign values ​​to TextViews by concatenating the current text with the value of each field
         nameTextView.setText(MessageFormat.format("{0}: {1}", nameTextView.getText().toString(), element.getName()));
         atomicMassTextView.setText(MessageFormat.format("{0}: {1}", atomicMassTextView.getText().toString(), element.getAtomic_mass()));
         boilTextView.setText(MessageFormat.format("{0}: {1}", boilTextView.getText().toString(), element.getBoil()));

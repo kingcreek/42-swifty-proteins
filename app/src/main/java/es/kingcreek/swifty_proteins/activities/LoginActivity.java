@@ -88,6 +88,14 @@ public class LoginActivity extends AppCompatActivity {
     private void loginUser() {
         String email = emailEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
+        if (email.isEmpty()) {
+            Toast.makeText(this, "Fill in the email field", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (password.isEmpty()) {
+            Toast.makeText(this, "Fill in the password field", Toast.LENGTH_LONG).show();
+            return;
+        }
         // Request login to firebase
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
