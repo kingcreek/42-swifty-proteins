@@ -202,7 +202,7 @@ public class ProteinView extends AppCompatActivity implements AtomCallback {
         @Override
         protected void onPostExecute(List<Atom> atoms) {
             // Ok we catch! now we have a list of atoms in requested protein, let's draw it
-            if (atoms != null) {
+            if (atoms != null && atoms.size() > 0) {
                 //First, iterate over all atoms
                 for (Atom atom : atoms) {
                     // Draw spheres
@@ -220,7 +220,7 @@ public class ProteinView extends AppCompatActivity implements AtomCallback {
                 sceneRenderer.onAtomsRendered();
             } else {
                 // Ops, cant load atoms, show warning message and go back
-                Toast.makeText(getApplicationContext(), "Failed to load atoms", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Failed to load atoms, probably .pdb file are empty.", Toast.LENGTH_LONG).show();
                 finish();
             }
         }

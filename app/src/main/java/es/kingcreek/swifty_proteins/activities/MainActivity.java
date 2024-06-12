@@ -22,6 +22,7 @@ import java.util.List;
 import es.kingcreek.swifty_proteins.MyApplication;
 import es.kingcreek.swifty_proteins.R;
 import es.kingcreek.swifty_proteins.adapters.ProteinAdapter;
+import es.kingcreek.swifty_proteins.helper.NetworkUtils;
 import es.kingcreek.swifty_proteins.interfaces.AdapterHandler;
 
 
@@ -100,9 +101,14 @@ public class MainActivity extends AppCompatActivity implements AdapterHandler {
 
     @Override
     public void onItemClicked(String protein) {
-        Intent i = new Intent(this, ProteinView.class);
-        i.putExtra("protein", protein);
-        startActivity(i);
+        if(NetworkUtils.isNetworkAvailable(this)) {
+            Intent i = new Intent(this, ProteinView.class);
+            i.putExtra("protein", protein);
+            startActivity(i);
+        } else {
+            Toast.makeText(this, "Please, check your internet connection.", Toast.LENGTH_LONG).show();
+        }
+
     }
 
     @Override

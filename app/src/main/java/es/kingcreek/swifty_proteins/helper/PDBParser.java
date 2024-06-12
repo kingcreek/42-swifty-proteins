@@ -12,8 +12,8 @@ import es.kingcreek.swifty_proteins.models.Atom;
 public class PDBParser {
 
     private static final String TAG = "PDBParser";
-    public static List<Atom> parsePDB(String urlString) {
-        List<Atom> atoms = new ArrayList<>();
+    public static ArrayList<Atom> parsePDB(String urlString) {
+        ArrayList<Atom> atoms = new ArrayList<>();
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
 
